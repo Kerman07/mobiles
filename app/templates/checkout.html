@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<div class="container checkout">
+	    <h3>Buy for {{ total }} $</h3>
+	    <form action="/charge" method="post">
+	      <script
+	        src="https://checkout.stripe.com/checkout.js"
+	        class="stripe-button"
+	        data-key="{{ key }}"
+	        data-description="Mobiles For You"
+	        data-amount="{{ total * 1000 }}"
+	        data-locale="auto">
+	      </script>
+	    </form>
+  </div>
+{% endblock %}

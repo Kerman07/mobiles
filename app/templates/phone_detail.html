@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="phone_detail">
+    <div class="row phone_row">
+      <div class="card phone-det">
+        <img src="{{ phone.img_link }}" class="detail-img" alt="{{ phone.maker }}-{{ phone.model }}">
+      </div>
+      <div class="card phone-det">
+            <p><strong>Maker:</strong> {{ phone.maker }}</p>
+            <p><strong>Model:</strong> {{ phone.model }}</p>
+            <p><strong>Memory:</strong> {{ phone.memory }} GB ({{ phone.ram }}GB RAM)</p>
+        <p><strong>Some info about the product:</strong>
+          <br>{{ phone.specs }}
+        </p>
+        <div class="phone-buttons">
+          <form action="{{ url_for('home') }}">
+            <button class="btn btn-warning mr-2">Back to Homepage</button>
+          </form>
+          <form action="" method="post">
+          {% if phone.maker + '-' + phone.model in session['cart'] %}
+            <button disabled class="btn btn-warning cart-btn">In Cart</button>
+          {% else %}
+            <button class="btn btn-primary cart-btn" value="{{ phone.maker }}-{{ phone.model }}" type="submit" name="cart">Add to Cart</button>
+          {% endif %}
+          </form>
+        </div>
+        <button class="btn btn-outline-success price-btn">Price: {{ phone.price }} $</button>
+      </div>
+    </div>
+  </div>
+{% endblock %}

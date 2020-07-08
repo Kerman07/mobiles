@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<section class="container content-section cart-section">
+        <h2 class="section-header pt-2 pb-2" style="text-align: center;">CART</h2>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">ITEM</span>
+            <span class="cart-price cart-header cart-column">PRICE</span>
+            <span class="cart-quantity cart-header cart-column">OPTIONS</span>
+        </div>
+        <div class="cart-items">
+        	{% for phone in phones %}
+	            <div class="cart-row">
+	                <div class="cart-item cart-column">
+	                    <img class="cart-item-image" src="{{ phone.img_link }}" width="100" height="100">
+                        <div class="ml-2">
+    	                    <p class="cart-item-title mb-0" style="text-align: left;">{{ phone.maker }} {{ phone.model }}</p>
+                            <p class="cart-item-title mb-0" style="text-align: left;">{{ phone.memory }} GB ({{ phone.ram }}GB RAM)</p>
+                        </div>
+	                </div>
+	                <span class="cart-price cart-column">{{ phone.price }} $</span>
+	                <div class="cart-quantity cart-column">
+	                	<form action="" method="post">
+	                    	<button class="btn btn-danger" type="submit"
+	                    	name="remove" value="{{ phone.maker }}-{{ phone.model }}">REMOVE</button>
+	                	</form>
+	                </div>
+	            </div>
+            {% endfor %}
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">{{ total }} $</span>
+        </div>
+        <form action="{{ url_for('checkout', total=total) }}">
+        	<button class="btn btn-primary btn-purchase" type="submit">PURCHASE</button>
+        </form>
+    </section>
+{% endblock %}
