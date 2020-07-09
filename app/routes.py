@@ -34,6 +34,9 @@ def home():
                 session['sorting'] = 'abc'
             elif 'newest' in request.form['sorting']:
                 session['sorting'] = 'newest'
+        if 'cart' in request.form:
+            if request.form['cart'] not in session['cart']:
+                session['cart'].append(request.form['cart'])
         return redirect(url_for('home'))
     if 'search' in session:
         value = session['search']
@@ -53,9 +56,6 @@ def home():
             phones = Phone.query.order_by(Phone.timestamp.desc()).all()
     else:
         phones = Phone.query.order_by(Phone.timestamp.desc()).all()
-    if 'cart' in request.form:
-        if request.form['cart'] not in session['cart']:
-            session['cart'].append(request.form['cart'])
     return render_template('index.html', phones=phones)
 
 
