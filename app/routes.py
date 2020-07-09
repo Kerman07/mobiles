@@ -23,9 +23,8 @@ def home():
         session['cart'] = []
     if 'search' in request.form and request.form['search']:
         value = request.form['search']
-        tag = f'%{value}%'
-        makers = Phone.query.filter(Phone.maker.like(tag))
-        models = Phone.query.filter(Phone.model.like(tag))
+        makers = Phone.query.filter(Phone.maker.ilike(value))
+        models = Phone.query.filter(Phone.model.ilike(value))
         phones = makers.union(models)
     elif 'sorting' in request.form:
         if 'price-asc' in request.form['sorting']:
@@ -49,7 +48,7 @@ def home():
             phones = Phone.query.order_by(Phone.maker).all()
         elif 'newest' in session['sorting']:
             phones = Phone.query.order_by(Phone.timestamp.desc()).all()
-    if 'sorting' not in session:
+    if 'sorting' not in session and not phones:
         phones = Phone.query.order_by(Phone.timestamp.desc()).all()
     if 'cart' in request.form:
         if request.form['cart'] not in session['cart']:

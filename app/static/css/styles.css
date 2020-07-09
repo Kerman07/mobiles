@@ -423,3 +423,9 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
+@media (max-width: 599px) {
+	.remove-btn {
+		font-size: 12px;
+	}
+}
