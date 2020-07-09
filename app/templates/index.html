@@ -3,7 +3,7 @@
 {% block body %}
   <form class="form-inline search-select" action="{{ url_for('home') }}" method="post">
     <input class="form-control mr-sm-2 search" type="search" placeholder="Search" aria-label="Search" name="search">
-    <button class="btn btn-outline-success my-2 my-sm-0 search-btn" type="submit">Go</button>
+    <button class="btn btn-outline-success my-2 my-sm-0 search-btn" type="submit" value="search">Go</button>
     {% if not current_user.is_authenticated %}
       <select class="form-control mr-0 select" name="sorting" onchange="javascript:this.form.submit()">
         <option selected="true" style="display:none;">Sort by</option>
