@@ -1,10 +1,14 @@
-Mate 20 - https://fdn2.gsmarena.com/vv/pics/huawei/mate20_black_00.jpg
-S9 - https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s9-burgundy-red.jpg
-S10+ - https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s10-plus-1.jpg
-XSMax - https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-xs-max-5.jpg
-10 Pro - https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-pro-10.jpg
-S20 Ultra - https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s20-ultra-10.jpg
-P30 Pro - https://fdn2.gsmarena.com/vv/pics/huawei/huawei-p30-pro-1.jpg
-MI 9T - https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-9t-0.jpg
-OP 8Pro - https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-8-pro-1.jpg
-Note 9Pro - https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-9-pro-global-0.jpg
+-Apple iPhone X https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-x-new-1.jpg 64gb 3gb ram 689 $
+-Apple iPhone XS Max https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-xs-max-5.jpg 256gb 4gb ram 920 $
+-Google Pixel 3 https://fdn2.gsmarena.com/vv/pics/google/google-pixel-3-4.jpg 64gb 4gb ram 369 $
+-Samsung Galaxy S10+ https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s10-plus-1.jpg 128gb 8gb ram 670 $
+-Huawei P30 Pro https://fdn2.gsmarena.com/vv/pics/huawei/huawei-p30-pro-1.jpg 128gb 6gb ram 425 $
+-Samsung Galaxy Note 10+ https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-note10-plus-aura-glow.jpg 256 GB 12gb ram 840 $
+-Xiaomi Mi 9T Pro https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-9t-0.jpg 128gb 6gb ram 375 $
+-Apple iPhone 11 Pro Max  https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-pro-10.jpg 512 GB 4GB RAM 1449 $
+-Google Pixel 4 https://fdn2.gsmarena.com/vv/pics/google/google-pixel-4-1.jpg  64gb 6gb ram 640 $
+-Samsung Galaxy S20 Ultra https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s20-ultra-10.jpg 128gb 12gb Ram 1095 $
+-OnePlus 8 Pro https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-8-pro-1.jpg 256gb 12gb ram 999 $
+
+
+
