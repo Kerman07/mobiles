@@ -19,27 +19,38 @@ stripe.api_key = stripe_keys['secret_key']
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    print(session)
     if 'cart' not in session:
         session['cart'] = []
-    if 'search' in request.form and request.form['search']:
-        value = request.form['search']
-        makers = Phone.query.filter(Phone.maker.ilike(value))
-        models = Phone.query.filter(Phone.model.ilike(value))
+    if 'search' not in session:
+        session['search'] = ""
+    if request.method == 'POST':
+        print(request.form)
+        if 'search' in request.form and request.form['search']:
+            value = request.form['search']
+            tag = f"%{value}%"
+            session['search'] = tag
+        elif 'sorting' in request.form:
+            if 'price-asc' in request.form['sorting']:
+                session['sorting'] = 'price-asc'
+            elif 'price-desc' in request.form['sorting']:
+                session['sorting'] = 'price-desc'
+            elif 'abc' in request.form['sorting']:
+                session['sorting'] = 'abc'
+            elif 'newest' in request.form['sorting']:
+                session['sorting'] = 'newest'
+        if 'cart' in request.form:
+            if request.form['cart'] not in session['cart']:
+                session['cart'].append(request.form['cart'])
+        print(session)
+        return redirect(url_for('home'))
+    if 'search' in session and session['search']:
+        tag = session['search']
+        session['search'] = ""
+        makers = Phone.query.filter(Phone.maker.ilike(tag))
+        models = Phone.query.filter(Phone.model.ilike(tag))
         phones = makers.union(models)
-    elif 'sorting' in request.form:
-        if 'price-asc' in request.form['sorting']:
-            session['sorting'] = 'price-asc'
-            phones = Phone.query.order_by(Phone.price).all()
-        elif 'price-desc' in request.form['sorting']:
-            session['sorting'] = 'price-desc'
-            phones = Phone.query.order_by(Phone.price.desc()).all()
-        elif 'abc' in request.form['sorting']:
-            session['sorting'] = 'abc'
-            phones = Phone.query.order_by(Phone.maker).all()
-        elif 'newest' in request.form['sorting']:
-            session['sorting'] = 'newest'
-            phones = Phone.query.order_by(Phone.timestamp.desc()).all()
-    elif 'sorting' in session:
+    elif 'sorting' in session and session['sorting']:
         if 'price-asc' in session['sorting']:
             phones = Phone.query.order_by(Phone.price).all()
         elif 'price-desc' in session['sorting']:
@@ -48,11 +59,8 @@ def home():
             phones = Phone.query.order_by(Phone.maker).all()
         elif 'newest' in session['sorting']:
             phones = Phone.query.order_by(Phone.timestamp.desc()).all()
-    if 'sorting' not in session:
+    else:
         phones = Phone.query.order_by(Phone.timestamp.desc()).all()
-    if 'cart' in request.form:
-        if request.form['cart'] not in session['cart']:
-            session['cart'].append(request.form['cart'])
     return render_template('index.html', phones=phones)
 
 

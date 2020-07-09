@@ -301,6 +301,13 @@ body {
     margin-top: 10px;
 }
 
+@media (max-width: 599px) {
+	.cart-column {
+		display: block;
+		text-align: center;
+	}
+}
+
 .cart-row {
     display: flex;
     background-color: white;
@@ -426,6 +433,15 @@ body {
 
 @media (max-width: 599px) {
 	.remove-btn {
-		width: 10%;
+		font-size: 10px;
+		width: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.cart-section {
+		width: 100%;
+		height: 100%;
 	}
 }
