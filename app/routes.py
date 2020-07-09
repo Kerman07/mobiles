@@ -48,7 +48,7 @@ def home():
             phones = Phone.query.order_by(Phone.maker).all()
         elif 'newest' in session['sorting']:
             phones = Phone.query.order_by(Phone.timestamp.desc()).all()
-    if 'sorting' not in session and not phones:
+    if 'sorting' not in session:
         phones = Phone.query.order_by(Phone.timestamp.desc()).all()
     if 'cart' in request.form:
         if request.form['cart'] not in session['cart']:

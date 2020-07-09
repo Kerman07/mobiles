@@ -98,7 +98,7 @@ body {
 }
 
 .select {
-	width: 24%;
+	width: 25%;
 	margin-left: auto;
 	margin-right: 0;
 }
@@ -426,6 +426,6 @@ body {
 
 @media (max-width: 599px) {
 	.remove-btn {
-		font-size: 12px;
+		width: 10%;
 	}
 }
