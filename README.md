@@ -3,10 +3,11 @@
 * optimized for desktop and mobile viewing
 * features an admin panel for easy maintenance of mobile phones
 * Stripe integration for payments
-* fully functioning searching and sorting by different criteria
+* fully functioning partial search and sorting by different criteria
 <hr>
 
   [https://mobiles-for-you.herokuapp.com/](https://mobiles-for-you.herokuapp.com/)
 <hr>
 
 # Sample Screen
+![Screenshot](/app/static/sample.png)
