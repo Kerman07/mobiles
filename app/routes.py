@@ -34,7 +34,7 @@ def home():
             tag_maker, tag_model = f'%{maker}%', f'%{model}%'
             phones = Phone.query.filter(Phone.maker.ilike(tag_maker)).\
                 filter(Phone.model.ilike(tag_model)).all()
-    elif 'sorting' in request.form:
+    elif 'sorting' in request.form and request.form['sorting'] != 'Sort by':
         if 'price-asc' in request.form['sorting']:
             session['sorting'] = 'price-asc'
             phones = Phone.query.order_by(Phone.price).all()
