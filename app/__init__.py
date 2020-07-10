@@ -16,4 +16,4 @@ login.login_view = 'admin'
 migrate = Migrate(app, db)
 bcrypt = Bcrypt(app)
 
-from app import routes, models
+from app import routes, models, errors
