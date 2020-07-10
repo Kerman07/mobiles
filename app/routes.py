@@ -13,7 +13,6 @@ stripe_keys = {
     'secret_key': Config.STRIPE_SECRET_KEY,
     'publishable_key': Config.STRIPE_PUBLISHABLE_KEY
 }
-
 stripe.api_key = stripe_keys['secret_key']
 
 
@@ -21,12 +20,20 @@ stripe.api_key = stripe_keys['secret_key']
 def home():
     if 'cart' not in session:
         session['cart'] = []
+    if 'sorting' not in session:
+        session['sorting'] = 'newest'
     if 'search' in request.form and request.form['search']:
         value = request.form['search']
         tag = f"%{value}%"
         makers = Phone.query.filter(Phone.maker.ilike(tag))
         models = Phone.query.filter(Phone.model.ilike(tag))
         phones = makers.union(models)
+        if not phones.first():
+            splitter = value.split()
+            maker, model = splitter[0], ' '.join(splitter[1:])
+            tag_maker, tag_model = f'%{maker}%', f'%{model}%'
+            phones = Phone.query.filter(Phone.maker.ilike(tag_maker)).\
+                filter(Phone.model.ilike(tag_model)).all()
     elif 'sorting' in request.form:
         if 'price-asc' in request.form['sorting']:
             session['sorting'] = 'price-asc'
@@ -49,8 +56,6 @@ def home():
             phones = Phone.query.order_by(Phone.maker).all()
         elif 'newest' in session['sorting']:
             phones = Phone.query.order_by(Phone.timestamp.desc()).all()
-    if 'sorting' not in session:
-        phones = Phone.query.order_by(Phone.timestamp.desc()).all()
     if 'cart' in request.form:
         if request.form['cart'] not in session['cart']:
             session['cart'].append(request.form['cart'])
